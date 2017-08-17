@@ -20,7 +20,7 @@ public class PessoaAction extends ActionSupport {
 	private PessoaMBean pessoa;
 	private String mensagem;
 	
-	public PessoaAction(){
+	public PessoaAction(){ 
 		pessoa = new PessoaMBean();
 	}
 	
