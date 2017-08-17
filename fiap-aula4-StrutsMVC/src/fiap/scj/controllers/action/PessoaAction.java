@@ -1,5 +1,8 @@
 package fiap.scj.controllers.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -13,6 +16,7 @@ public class PessoaAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	
+	private static List<PessoaMBean> pessoaList = new ArrayList<PessoaMBean>();;
 	private PessoaMBean pessoa;
 	private String mensagem;
 	
@@ -21,15 +25,35 @@ public class PessoaAction extends ActionSupport {
 	}
 	
 	@Action(value = "/cadastrar", results = {
-			@Result(name = "success", location = "/sucesso.jsp"),
+			@Result(name = "success", location = "/cadastro.jsp"),
 			@Result(name = "error", location = "/erro.jsp"),
 	})
 	public String cadastrar(){
-		System.out.println(this.pessoa);
-		this.mensagem = "Everthing ok whith you registry";
+		
+		pessoaList.add(pessoa);
+		
+		System.out.println(this.pessoaList.get(0));
+		
+		this.mensagem = "Cadastrado";
 		return SUCCESS;
 	}
-	
+
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+	public List<PessoaMBean> getPessoaList() {
+		return pessoaList;
+	}
+
+	public void setPessoaList(List<PessoaMBean> pessoaList) {
+		this.pessoaList = pessoaList;
+	}
 
 	public PessoaMBean getPessoa() {
 		return pessoa;
@@ -39,11 +63,4 @@ public class PessoaAction extends ActionSupport {
 		this.pessoa = pessoa;
 	}
 
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
 }

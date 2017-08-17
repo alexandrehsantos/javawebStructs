@@ -5,7 +5,9 @@ import java.util.Date;
 public class PessoaMBean {
 
 	private String nome;
-	private Date dataNasc;	
+	private String rg;
+	private Date dataNasc;
+	private String email;
 	
 	@Override
 	public String toString() {
@@ -14,6 +16,8 @@ public class PessoaMBean {
 	public PessoaMBean() {
 		super();
 	}
+	
+	
 	public String getNome() {
 		return nome;
 	}
@@ -25,5 +29,17 @@ public class PessoaMBean {
 	}
 	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}	
 }

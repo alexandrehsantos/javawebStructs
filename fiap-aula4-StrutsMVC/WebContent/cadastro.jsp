@@ -11,9 +11,15 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	<s:form action="/cadastrar" namespace="/pessoa" method="post"
 		enctype="multipart/form-data">
 		<s:textfield name="pessoa.nome" label="Nome" />
+		<s:textfield name="pessoa.rg" label="RG" />
 		<sx:datetimepicker name="pessoa.dataNasc" 
-		label="dd-MMM-yyyy" />
+			label="dd-MMM-yyyy" />
+		<s:textfield name="pessoa.email" label="Email" />
 		<s:submit />
 	</s:form>
+	
+	<s:iterator value="pessoaList" var="p">
+		${p.nome}
+	</s:iterator>
 </body>
 </html>
